@@ -1,0 +1,19 @@
+{
+  "releaseCommitMessageFormat": "chore(release): {{currentTag}} [skip ci]",
+  "packageFiles": [
+    {
+      "filename": "./package.json",
+      "type": "json"
+    }
+  ],
+  "bumpFiles": [
+    {
+      "filename": "./package.json",
+      "type": "json"
+    },
+    {
+      "filename": "./projects/bytelabs/ngx-tabler-icons/package.json",
+      "type": "json"
+    }
+  ]
+}

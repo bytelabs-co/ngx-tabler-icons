@@ -1,0 +1,29 @@
+{
+  "name": "ngx-tabler-icons-schematics",
+  "version": "0.0.0",
+  "description": "A blank schematics",
+  "scripts": {
+    "schematics": "schematics",
+    "build": "tsc -p tsconfig.json",
+    "build-and-watch": "tsc -p tsconfig.json --watch",
+    "test": "npm run build && jasmine src/**/*_spec.js"
+  },
+  "keywords": [
+    "schematics"
+  ],
+  "author": "",
+  "license": "MIT",
+  "schematics": "./src/collection.json",
+  "dependencies": {
+    "@angular-devkit/core": "^19.1.7",
+    "@angular-devkit/schematics": "^19.1.7",
+    "svgson": "^5.3.1",
+    "typescript": "~5.7.2"
+  },
+  "devDependencies": {
+    "@tabler/icons": "^3.30.0",
+    "@types/jasmine": "~5.1.0",
+    "@types/node": "^18.18.0",
+    "jasmine": "^5.0.0"
+  }
+}

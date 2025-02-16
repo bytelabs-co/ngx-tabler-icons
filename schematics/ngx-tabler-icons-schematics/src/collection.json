@@ -1,0 +1,19 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "generate-icons": {
+      "description": "Generate Tabler icon components",
+      "factory": "./generate-icons/index#generateIcons"
+    },
+    "icon-component": {
+      "description": "Generate a Tabler icon component",
+      "factory": "./icon-component/index#iconComponent",
+      "schema": "./icon-component/schema.json"
+    },
+    "test": {
+      "description": "test",
+      "factory": "./test/index#test",
+      "scheme": "./test/schme.json"
+    }
+  }
+}

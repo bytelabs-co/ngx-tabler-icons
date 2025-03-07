@@ -4,7 +4,6 @@ on:
 
 env:
   TABLER_VERSION: "0.0.0"
-  TABLER_VERSION_CHECK: ""
   UPDATE_AVAILABLE: false
 
 jobs:
@@ -22,7 +21,6 @@ jobs:
         echo "TABLER_VERSION=$TABLER_VERSION" >> $GITHUB_ENV
     - run: |
         TABLER_VERSION_CHECK=$(npx semver --range "> ${{ vars.LATEST_TABLER_ICONS_VERSION }}" "${{env.TABLER_VERSION}}")
-        echo "TABLER_VERSION_CHECK=$TABLER_VERSION_CHECK" >> $GITHUB_ENV
-    - run: echo "UPDATE_AVAILABLE = true" >> $GITHUB_ENV
-      if:  ${{ env.TABLER_VERSION_CHECK != '' }} 
+        UPDATE_AVAILABLE=${{ $TABLER_VERSION_CHECK != '' }}
+        echo "UPDATE_AVAILABLE=$UPDATE_AVAILABLE" >> $GITHUB_ENV
     - run: echo ${{ env.UPDATE_AVAILABLE }}

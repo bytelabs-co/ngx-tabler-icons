@@ -17,8 +17,8 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '20.x'
-    - run: TABLER_VERSION=$(npm view @tabler/icons verison)
-    - run: TABLER_VERSION_CHECK = $(npx semver --range "> ${{ vars.LATEST_TABLER_ICONS_VERSION }}" "${{env.TABLER_VERSION}}")
-    - run: UPDATE_AVAILABLE = true
+    - run: echo "TABLER_VERSION=$(npm view @tabler/icons verison)" >> $GITHUB_ENV
+    - run: echo "TABLER_VERSION_CHECK = $(npx semver --range '> ${{ vars.LATEST_TABLER_ICONS_VERSION }}' '${{env.TABLER_VERSION}}')" >> $GITHUB_ENV
+    - run: echo "UPDATE_AVAILABLE = true" >> $GITHUB_ENV
       if:  ${{ env.TABLER_VERSION_CHECK != '' }} 
     - run: echo ${{ env.UPDATE_AVAILABLE }}

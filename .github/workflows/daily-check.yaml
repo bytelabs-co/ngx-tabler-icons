@@ -7,7 +7,7 @@ on:
 
 jobs:
   check-tabler-icons:
-    uses: bytelabs-co/ngx-tabler-icons/.github/workflows/_templates/_tabler-icons-version-check.tmpl.yaml
+    uses: bytelabs-co/ngx-tabler-icons/.github/workflows/_templates/_tabler-icons-version-check.tmpl.yaml@main
     with: 
       currentTablerIconsVersion: ${{ vars.CURRENT_TABLER_ICONS_VERSION }}
       

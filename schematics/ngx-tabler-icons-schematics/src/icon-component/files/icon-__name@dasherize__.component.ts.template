@@ -1,8 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { TablerIconBaseComponent } from '../tabler-icon-base.component';
 
 @Component({
-  selector: 'icon-<%= dasherize(name) %>',
+  selector: 'tabler-icon-<%= dasherize(name) %>, ti-<%= dasherize(name) %>',
   template: `<%= svgTemplate %>`
 })
-export class Icon<%= classify(name) %>Component extends TablerIconBaseComponent { }
+export class TablerIcon<%= classify(name) %>Component extends TablerIconBaseComponent { 
+
+<% if(applyFillColor === true) { %>
+  fillColor = computed<string>(() => this.color());
+<% } else { %>
+  fillColor = signal<string>('none');
+<% } %>
+
+<% if(applyStrokeColor === true){ %>
+  strokeColor = computed<string>(() => this.color());
+<% } else { %>
+  strokeColor = signal<string>('none');
+<% } %>
+  
+}

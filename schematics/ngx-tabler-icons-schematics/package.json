@@ -17,13 +17,13 @@
   "dependencies": {
     "@angular-devkit/core": "^19.1.7",
     "@angular-devkit/schematics": "^19.1.7",
-    "svgson": "^5.3.1",
     "typescript": "~5.7.2"
   },
   "devDependencies": {
     "@tabler/icons": "^3.30.0",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^18.18.0",
-    "jasmine": "^5.0.0"
+    "jasmine": "^5.0.0",
+    "svgson": "^5.3.1"
   }
 }

@@ -1,5 +1,5 @@
 export interface Schema {
-  
+
   /**
    * Name of the icon
    */
@@ -10,8 +10,11 @@ export interface Schema {
    */
   svgTemplate: string;
 
+  style: styleType;
+
   path?: string;
 
   project?: string;
-
 }
+
+export type styleType = 'outline' | 'filled';

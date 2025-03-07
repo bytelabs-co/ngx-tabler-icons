@@ -1,0 +1,18 @@
+<div class="border d-flex flex-wrap p-1 ratio ratio-1x1" role="button" (click)="showIconDetails(iconDetailsContentTmpl)" [ngbTooltip]="icon().name">
+  <div class="d-flex justify-content-center align-items-center">
+    <ng-container *ngComponentOutlet="iconComponent()"></ng-container>
+  </div>
+</div>
+
+
+<ng-template #iconDetailsContentTmpl let-modal>
+  <div class="modal-header d-flex">
+    <h6 class="modal-title flex-grow-1">{{ icon().name }}</h6>
+    <button class="btn btn-outline-secondary btn-sm" (click)="modal.close()">
+      <ti-x/>
+    </button> 
+  </div>
+  <div class="modal-body">
+    <app-icon-details [icon]="icon()" [iconComponent]="iconComponent()"></app-icon-details>    
+  </div>
+</ng-template>

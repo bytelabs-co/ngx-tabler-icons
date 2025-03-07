@@ -1,0 +1,42 @@
+<div class="row ">
+  <div class="col d-flex justify-content-center">
+    <ng-container *ngComponentOutlet="iconComponent(); inputs: {size: '128px'}"></ng-container>
+  </div>
+</div>
+<div class="row mt-4">
+  <div class="col">
+    <span>{{ iconComponentName() }}</span>    
+  </div>
+  <div class="col-auto">
+    <button class="btn btn-sm btn-outline-success ms-2" (click)="copyToClipboard(iconComponentName())" ngbTooltip="Copied!" triggers="manual" #t1="ngbTooltip" (click)="t1.open()" (mouseleave)="t1.close(true)" [closeDelay]="500"><ti-clipboard-copy/></button>
+  </div>
+</div>
+<div class="row mt-1">
+  <div class="col">
+    <span>{{ iconTag() }}</span>    
+  </div>
+  <div class="col-auto">
+    <button class="btn btn-sm btn-outline-success ms-2" (click)="copyToClipboard(iconTag())" ngbTooltip="Copied!" triggers="manual" #t2="ngbTooltip" (click)="t2.open()" (mouseleave)="t2.close(true)" [closeDelay]="500"><ti-clipboard-copy/></button>
+  </div>
+</div>
+<div class="row mt-1">
+  <div class="col">
+    <span>{{ iconTagAlt() }}</span>
+  </div>
+  <div class="col-auto">
+    <button class="btn btn-sm btn-outline-success ms-2" (click)="copyToClipboard(iconTagAlt())" ngbTooltip="Copied!" triggers="manual" #t2="ngbTooltip" (click)="t2.open()" (mouseleave)="t2.close(true)" [closeDelay]="500"><ti-clipboard-copy/></button>
+  </div>
+</div>
+<hr>
+<div class="row ">
+  <div class="col">
+    @if(!!icon().category) {
+      <span class="badge bg-primary text-bg-primary me-1">{{ icon().category }}</span>
+    }
+
+    @for(tag of icon().tags; track tag){
+      <span class="badge bg-secondary text-bg-secondary me-1">{{ tag }}</span>
+    }
+
+  </div>
+</div>

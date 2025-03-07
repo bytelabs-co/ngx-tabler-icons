@@ -11,7 +11,7 @@ export function generateIcons(_options: GenerateIconsSchema): Rule {
   return async (tree: Tree, _context: SchematicContext) => {
 
     const host = createHost(tree);
-    const {workspace} = await workspaces.readWorkspace('/', host);
+    const { workspace } = await workspaces.readWorkspace('/', host);
 
     const project = _options.project != null ? workspace.projects.get(_options.project) : null;
     if (!project) {
@@ -19,22 +19,22 @@ export function generateIcons(_options: GenerateIconsSchema): Rule {
     }
 
     const iconsBuffer = tree.read("node_modules/@tabler/icons/icons.json");
-    if(iconsBuffer === null){
+    if (iconsBuffer === null) {
       throw new SchematicsException("Could not load icons.json from @tabler/icons");
     }
 
-    const icons = JSON.parse(iconsBuffer.toString()) as {[key: string]: IconDefinition };
+    const icons = JSON.parse(iconsBuffer.toString()) as { [key: string]: IconDefinition };
 
     const rules: Rule[] = [];
     const barrelExports: string[] = [];
 
     const iconsRootPath = `${project.sourceRoot}/lib/icons`;
 
-    for(let iconName of Object.keys(icons)){
+    for (let iconName of Object.keys(icons)) {
 
       const iconDef = (<any>icons)[iconName] as IconDefinition;
 
-      for(let styleKey of Object.keys(iconDef.styles)){
+      for (let styleKey of Object.keys(iconDef.styles)) {
 
         const svgPath = `node_modules/@tabler/icons/icons/${styleKey}/${iconDef.name}.svg`;
 
@@ -44,13 +44,14 @@ export function generateIcons(_options: GenerateIconsSchema): Rule {
         barrelExports.push(getBarrelExportForComponent(name));
 
         const svgBuffer = tree.read(svgPath);
-        if(svgBuffer != null){
+        if (svgBuffer != null) {
 
           const svgContent = svgBuffer.toString();
 
           const iconComponentOptions: IconComponentSchema = {
             name: name,
             svgTemplate: svgContent,
+            style: styleKey === 'outline' ? 'outline' : 'filled',
             path: iconsRootPath,
             project: _options.project
           }
@@ -59,7 +60,7 @@ export function generateIcons(_options: GenerateIconsSchema): Rule {
 
           rules.push(iconComponentSchematic);
 
-        } else{
+        } else {
           _context.logger.warn(`File not found: ${svgPath}`);
         }
       }
@@ -78,7 +79,7 @@ export function generateIcons(_options: GenerateIconsSchema): Rule {
     }
 
     const templateSource = apply(url('./files'), [
-      applyTemplates({ 
+      applyTemplates({
         exports: barrelExports.sort((a, b) => a.localeCompare(b))
       }),
       move(normalize(iconsRootPath as string)),
@@ -89,11 +90,11 @@ export function generateIcons(_options: GenerateIconsSchema): Rule {
         chain([mergeWith(templateSource)]),
         chain(ruleChunks)
       ])
-      
+
   };
 }
 
-function getBarrelExportForComponent(name: string): string{
+function getBarrelExportForComponent(name: string): string {
 
   const component = `icon-${name}.component`;
 

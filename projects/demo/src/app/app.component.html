@@ -1,4 +1,44 @@
-<div>
-  <icon-moon size="60" color="red" stroke="1"></icon-moon>
-  <icon-aerial-lift-filled></icon-aerial-lift-filled>
+<nav class="navbar navbar-light bg-light">
+  <div class="container">
+    <span class="navbar-brand mb-0 h1">&#64;bytelabs/ngx-tabler-icons</span>
+  </div>
+</nav>
+<div class="container">
+  <div class="row my-4 justify-content-center">
+    <div class="col-12 col-lg-8 col-xl-6 d-flex">
+      <div class="flex-grow-1">
+        <input type="text" class="form-control" [(ngModel)]="search" placeholder="Search {{ totalIcons() }} icons"/>
+      </div>    
+    </div>
+  </div>
+  <div class="row">
+    <div class="col d-flex justify-content-center">
+      <ng-container *ngTemplateOutlet="paginationTmpl"></ng-container>
+    </div>
+  </div>  
+  <div class="row">
+    @for(icon of icons(); track icon.iconName){
+      <div class="col-3 col-md-2 col-lg-1 mb-4">
+        <app-icon-card [icon]="icon"></app-icon-card>
+      </div>
+    }
+  </div>
+  <div class="row">
+    <div class="col d-flex justify-content-center">
+      <ng-container *ngTemplateOutlet="paginationTmpl"></ng-container>
+    </div>
+  </div>
 </div>
+
+<ng-template #paginationTmpl>
+  <ngb-pagination 
+  [(page)]="this.page" 
+  [pageSize]="this.itemsPerPage()" 
+  [collectionSize]="this.totalIcons()"
+  [maxSize]="5"
+  [ellipses]="true"></ngb-pagination>
+</ng-template>
+
+<ng-template #appSettingsTmpl>
+
+</ng-template>

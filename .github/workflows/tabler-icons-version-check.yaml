@@ -4,12 +4,14 @@ on:
 
 env:
   TABLER_VERSION: "0.0.0"
-  UPDATE_AVAILABLE: false
 
 jobs:
-  manual:
-    name: build
+  version-check:
+    name: "@tabler/icons new version check"
     runs-on: ubuntu-latest
+
+    outputs:
+      update-available: ${{ steps.updateAvailable.isNew }}
 
     steps:
     - name: Use Node.js
@@ -19,9 +21,9 @@ jobs:
     - run: |
         TABLER_VERSION=$(npm view @tabler/icons version)
         echo "TABLER_VERSION=$TABLER_VERSION" >> $GITHUB_ENV
-    - run: |
+    - id: updateAvailable
+      run: |
         TABLER_VERSION=$(npx semver --range "> ${{ vars.CURRENT_TABLER_ICONS_VERSION }}" "${{env.TABLER_VERSION}}")
         UPDATE_AVAILABLE=${{ env.TABLER_VERSION != '' }}
-        echo "UPDATE_AVAILABLE=$UPDATE_AVAILABLE" >> $GITHUB_ENV
+        echo "isNew=$UPDATE_AVAILABLE" >> $GITHUB_ENV
       continue-on-error: true
-    - run: echo ${{ env.UPDATE_AVAILABLE }}

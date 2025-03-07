@@ -20,7 +20,7 @@ jobs:
         TABLER_VERSION=$(npm view @tabler/icons version)
         echo "TABLER_VERSION=$TABLER_VERSION" >> $GITHUB_ENV
     - run: |
-        TABLER_VERSION=$(npx semver --range "> ${{ vars.LATEST_TABLER_ICONS_VERSION }}" "${{env.TABLER_VERSION}}")
+        TABLER_VERSION=$(npx semver --range "> ${{ vars.CURRENT_TABLER_ICONS_VERSION }}" "${{env.TABLER_VERSION}}")
         UPDATE_AVAILABLE=${{ TABLER_VERSION != '' }}
         echo "UPDATE_AVAILABLE=$UPDATE_AVAILABLE" >> $GITHUB_ENV
     - run: echo ${{ env.UPDATE_AVAILABLE }}

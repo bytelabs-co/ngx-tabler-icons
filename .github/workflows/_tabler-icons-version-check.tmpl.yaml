@@ -19,7 +19,7 @@ jobs:
       AVAILABLE_TABLER_VERSION: "0.0.0"
 
     outputs:
-      update-available: ${{ steps.update-available.is-new }}
+      update-available: ${{ steps.update-available.outputs.is-new }}
 
     steps:
     - name: Use Node.js

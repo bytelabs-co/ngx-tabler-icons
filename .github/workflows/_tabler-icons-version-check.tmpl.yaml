@@ -19,7 +19,7 @@ jobs:
       AVAILABLE_TABLER_VERSION: "0.0.0"
 
     outputs:
-      update-available: ${{ steps.updateAvailable.isNew }}
+      update-available: ${{ steps.update-available.is-new }}
 
     steps:
     - name: Use Node.js
@@ -29,10 +29,10 @@ jobs:
     - run: |
         AVAILABLE_TABLER_VERSION=$(npm view @tabler/icons version)
         echo "AVAILABLE_TABLER_VERSION=$AVAILABLE_TABLER_VERSION" >> $GITHUB_ENV
-    - id: updateAvailable
+    - id: update-available
       run: |
         AVAILABLE_TABLER_VERSION=$(npx semver --range "> ${{ inputs.currentTablerIconsVersion }}" "${{env.AVAILABLE_TABLER_VERSION}}")
         UPDATE_AVAILABLE=${{ env.AVAILABLE_TABLER_VERSION != '' }}
         echo "$UPDATE_AVAILABLE"
-        echo "isNew=$UPDATE_AVAILABLE" >> $GITHUB_OUTPUT
+        echo "is-new=$UPDATE_AVAILABLE" >> $GITHUB_OUTPUT
       continue-on-error: true

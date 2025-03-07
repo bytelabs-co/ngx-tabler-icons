@@ -1,4 +1,4 @@
-name: "Build @bytelabs/ngx-tabler-icons"
+name: "_template: Build Library"
 
 on:
   workflow_call:

@@ -1,4 +1,4 @@
-name: "@tabler/icons version check"
+name: "_template: Tabler Icons Version Check"
 on:
   workflow_call:
     inputs:
@@ -11,6 +11,9 @@ jobs:
     name: "@tabler/icons new version check"
     runs-on: ubuntu-latest
 
+    env:
+      AVAILABLE_TABLER_VERSION: "0.0.0"
+
     outputs:
       update-available: ${{ steps.updateAvailable.isNew }}
 
@@ -19,11 +22,12 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '20.x'
+    - run: |
+        AVAILABLE_TABLER_VERSION=$(npm view @tabler/icons version)
+        echo "AVAILABLE_TABLER_VERSION=$AVAILABLE_TABLER_VERSION" >> $GITHUB_ENV
     - id: updateAvailable
       run: |
-        TABLER_VERSION=$(npm view @tabler/icons version)
-        echo "TABLER_VERSION=$TABLER_VERSION" >> $GITHUB_ENV
-        TABLER_VERSION=$(npx semver --range "> ${{ inputs.currentTablerIconsVersion }}" "${{env.TABLER_VERSION}}")
-        UPDATE_AVAILABLE=${{ env.TABLER_VERSION != '' }}
+        AVAILABLE_TABLER_VERSION=$(npx semver --range "> ${{ inputs.currentTablerIconsVersion }}" "${{env.AVAILABLE_TABLER_VERSION}}")
+        UPDATE_AVAILABLE=${{ env.AVAILABLE_TABLER_VERSION != '' }}
         echo "isNew=$UPDATE_AVAILABLE" >> $GITHUB_ENV
       continue-on-error: true

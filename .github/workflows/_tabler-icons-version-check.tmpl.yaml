@@ -5,6 +5,10 @@ on:
       currentTablerIconsVersion:
         required: true
         type: string
+    outputs:
+      update-available:
+        description: "New version of @tabler/icons is available"
+        value: ${{ jobs.version-check.outputs.update-available}}
 
 jobs:
   version-check:

@@ -1,6 +1,7 @@
 name: "Library: Build and Release"
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main

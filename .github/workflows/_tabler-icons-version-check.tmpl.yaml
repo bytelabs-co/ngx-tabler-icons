@@ -33,6 +33,5 @@ jobs:
       run: |
         AVAILABLE_TABLER_VERSION=$(npx semver --range "> ${{ inputs.currentTablerIconsVersion }}" "${{env.AVAILABLE_TABLER_VERSION}}")
         UPDATE_AVAILABLE=${{ env.AVAILABLE_TABLER_VERSION != '' }}
-        echo "$UPDATE_AVAILABLE"
         echo "is-new=$UPDATE_AVAILABLE" >> $GITHUB_OUTPUT
       continue-on-error: true

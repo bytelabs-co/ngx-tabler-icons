@@ -1,0 +1,19 @@
+name: "Library: Build and Release if new @tabler/icons exists"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check-tabler-icons:
+    uses: bytelabs-co/ngx-tabler-icons/.github/workflows/_templates/_tabler-icons-version-check.tmpl.yaml
+    with: 
+      currentTablerIconsVersion: ${{ vars.CURRENT_TABLER_ICONS_VERSION }}
+      
+  build-library:
+    needs: check-tabler-icons
+    if: ${{ needs.check-tabler-icons.outputs.update-available == true }}
+    uses: bytelabs-co/ngx-tabler-icons/.github/workflows/_templates/_build-library.tmpl.yaml@main
+
+

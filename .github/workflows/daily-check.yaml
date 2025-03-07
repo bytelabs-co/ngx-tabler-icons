@@ -12,8 +12,11 @@ jobs:
       currentTablerIconsVersion: ${{ vars.CURRENT_TABLER_ICONS_VERSION }}
       
   build-library:
+    runs-on: "ubuntu-latest"
     needs: check-tabler-icons
-    if: ${{ needs.check-tabler-icons.outputs.update-available }}
-    uses: bytelabs-co/ngx-tabler-icons/.github/workflows/_build-library.tmpl.yaml@main
+    steps:
+      - run: echo ${{ toJson(needs.check-tabler-icons.outputs)}}
+    # if: ${{ needs.check-tabler-icons.outputs.update-available }}
+    # uses: bytelabs-co/ngx-tabler-icons/.github/workflows/_build-library.tmpl.yaml@main
 
 

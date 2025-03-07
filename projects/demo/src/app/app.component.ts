@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, computed, inject, signal } from '@angular/core';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
-import { TablerIconPaletteComponent, TablerIconsSettingsService } from '@bytelabs/ngx-tabler-icons';
+import { TablerIconsSettingsService } from '@bytelabs/ngx-tabler-icons';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { combineLatest, debounceTime, distinctUntilChanged } from 'rxjs';
 import { IconCardComponent } from './icon-card/icon-card.component';
@@ -15,8 +15,7 @@ import { IconDefinition, TablerIconsService } from './tabler-icons.service';
     FormsModule,
     CommonModule,
     IconCardComponent,
-    NgbPaginationModule,
-    TablerIconPaletteComponent
+    NgbPaginationModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

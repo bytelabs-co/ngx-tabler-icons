@@ -15,7 +15,7 @@ jobs:
     runs-on: "ubuntu-latest"
     needs: check-tabler-icons
     steps:
-      - run: echo ${{ toJson(needs.check-tabler-icons.outputs)}}
+      - run: echo ${{ toJSON(needs.check-tabler-icons.outputs)}}
     # if: ${{ needs.check-tabler-icons.outputs.update-available }}
     # uses: bytelabs-co/ngx-tabler-icons/.github/workflows/_build-library.tmpl.yaml@main
 

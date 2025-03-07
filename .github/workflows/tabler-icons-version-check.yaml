@@ -21,7 +21,7 @@ jobs:
         TABLER_VERSION=$(npm view @tabler/icons version)
         echo "TABLER_VERSION=$TABLER_VERSION" >> $GITHUB_ENV
     - run: |
-        TABLER_VERSION_CHECK = $(npx semver --range "> ${{ vars.LATEST_TABLER_ICONS_VERSION }}" "${{env.TABLER_VERSION}}")
+        TABLER_VERSION_CHECK=$(npx semver --range "> ${{ vars.LATEST_TABLER_ICONS_VERSION }}" "${{env.TABLER_VERSION}}")
         echo "TABLER_VERSION_CHECK=$TABLER_VERSION_CHECK" >> $GITHUB_ENV
     - run: echo "UPDATE_AVAILABLE = true" >> $GITHUB_ENV
       if:  ${{ env.TABLER_VERSION_CHECK != '' }} 

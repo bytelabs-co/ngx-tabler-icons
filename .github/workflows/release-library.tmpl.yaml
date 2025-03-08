@@ -18,11 +18,16 @@ jobs:
           name: ngx-tabler-icons
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: List Artifact
+        run: ls -R ngx-tabler-icons
           
       - name: Unzip Artifact
+        if: ${{ false }}
         run: unzip ngx-tabler-icons/ngx-tabler-icons.zip -d "${{ runner.temp }}/library"
           
       - name: publish to npm
+        if: ${{ false }}
         run: npm publish "${{ runner.temp }}/library/*.zip"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

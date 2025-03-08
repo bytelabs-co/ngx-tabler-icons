@@ -26,6 +26,6 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Publish to NPM
-        run: npm publish bytelabs-ngx-tabler-icons-*.tgz
+        run: npm publish bytelabs-ngx-tabler-icons-*.tgz --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

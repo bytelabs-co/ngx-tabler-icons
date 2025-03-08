@@ -13,7 +13,7 @@ jobs:
     steps:
 
       - name: Download library artifact
-        uses: actions/downlaod-artifact@v4
+        uses: actions/download-artifact@v4
         with:
           name: ngx-tabler-icons
           run-id: ${{ github.event.workflow_run.id }}

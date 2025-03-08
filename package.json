@@ -16,7 +16,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "build-complete": "npm run clean-icon-components && npm run build-schematics && npm run link-schematics && npm run generate-icon-components && npm run build-high-memory",
-    "release": "commit-and-tag"
+    "release": "commit-and-tag-version"
   },
   "private": true,
   "dependencies": {

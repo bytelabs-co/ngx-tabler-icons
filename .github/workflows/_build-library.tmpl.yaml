@@ -25,3 +25,8 @@ jobs:
       with:
         name: ngx-tabler-icons
         path: bytelabs-ngx-tabler-icons-*.tgz
+    - run: |
+        AVAILABLE_TABLER_VERSION=$(npm view @tabler/icons version)
+        echo "AVAILABLE_TABLER_VERSION=$AVAILABLE_TABLER_VERSION" >> $GITHUB_ENV
+    - run: |
+        git push --follow-tags origin main

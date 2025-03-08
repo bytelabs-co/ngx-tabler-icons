@@ -1,0 +1,10 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - run: |        
+        gh variable set TEST_VAR --body "Set from workflow"

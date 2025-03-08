@@ -61,7 +61,7 @@ jobs:
         path: bytelabs-ngx-tabler-icons-*.tgz
 
     - name: Build Demo Application
-      run: npm run build-demo
+      run: npm run build-demo -- --prod --base-href="https://bytelabs-co.github.io/ngx-tabler-icons/"
 
     - name: Upload demo library artifact
       uses: actions/upload-artifact@v4

@@ -3,30 +3,55 @@ name: "_template: Build Library"
 on:
   workflow_call:
 
+env:
+  GH_TOKEN: ${{ secrets.VAR_PAT }}      
+
 jobs:
   manual:
     name: build library
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4.2.2
+    - name: Checkout Repository
+      uses: actions/checkout@v4.2.2
+    
     - name: Use Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '20.x'
-    - run: npm ci
-    - run: npm install @tabler/icons@latest
-    - run: npm run build-schematics
-    - run: npm run link-schematics
-    - run: npm run generate-icon-components
-    - run: npm run build-high-memory
-    - run: npm pack dist/bytelabs/ngx-tabler-icons
-    - uses: actions/upload-artifact@v4
+    
+    - name: Install Dependencies
+      run: npm ci
+    
+    - name: Install latest @tabler/icons
+      run: npm install @tabler/icons@latest
+    
+    - name: Build icon generation schematics 
+      run: npm run build-schematics
+    
+    - name: Link schematics
+      run: npm run link-schematics
+    
+    - name: Generate icon components
+      run: npm run generate-icon-components
+    
+    - name: Build Angular library
+      run: npm run build-high-memory
+    
+    - name: Pack Angular library
+      run: npm pack dist/bytelabs/ngx-tabler-icons
+    
+    - name: Upload packed library artifact
+      uses: actions/upload-artifact@v4
       with:
         name: ngx-tabler-icons
         path: bytelabs-ngx-tabler-icons-*.tgz
-    - run: |
-        AVAILABLE_TABLER_VERSION=$(npm view @tabler/icons version)
-        echo "AVAILABLE_TABLER_VERSION=$AVAILABLE_TABLER_VERSION" >> $GITHUB_ENV
-    - run: |
+    
+    - name: Update CURRENT_TABLER_ICONS_VERSION variable
+      run: |
+        TABLER_VERSION=$(npm view @tabler/icons version)
+        gh variable set TEST_VAR --body "$TABLER_VERSION"        
+    
+    - name: Push changes and tags to origin
+      run: |
         git push --follow-tags origin main

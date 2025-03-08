@@ -31,8 +31,11 @@ jobs:
       run: npm ci
     
     - name: Install latest @tabler/icons
-      run: npm install @tabler/icons@latest
-    
+      run: |
+        npm install @tabler/icons@latest
+        cd schematics/ngx-tabler-icons-schematics
+        npm install @tabler/icons@latest
+
     - name: Build icon generation schematics 
       run: npm run build-schematics
     

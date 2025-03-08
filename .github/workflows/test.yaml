@@ -9,5 +9,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v4.2.2
     - run: |        
         gh variable set --env repository TEST_VAR --body "Set from workflow"

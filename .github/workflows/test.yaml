@@ -10,4 +10,4 @@ jobs:
 
     steps:
     - run: |        
-        gh variable set TEST_VAR --body "Set from workflow"
+        gh variable set --env repository TEST_VAR --body "Set from workflow"

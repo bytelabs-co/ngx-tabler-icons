@@ -1,0 +1,21 @@
+name: "Release @bytelabs/ngx-tabler-icons to NPM"
+
+on:
+  workflow_run:
+    workflows: ["Library: Build and Release", "Library: Build and Release new @tabler/icons"]
+    types:
+      - completed
+
+jobs:
+  release-library:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Download library artifact
+        uses: actions/downlaod-artifact@v4
+        with:
+          name: ngx-tabler-icons
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          

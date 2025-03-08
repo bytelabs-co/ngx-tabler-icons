@@ -1,4 +1,4 @@
-name: "Library: Build and Release if new @tabler/icons exists"
+name: "Library: Build and Release new @tabler/icons"
 
 on:
   workflow_dispatch:

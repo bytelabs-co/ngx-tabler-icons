@@ -49,8 +49,8 @@ jobs:
       run: npm run release
     
     - name: Build Angular library
-      run: npm run build-high-memory
-    
+      run: npm run build
+   
     - name: Pack Angular library
       run: npm pack dist/bytelabs/ngx-tabler-icons
     
@@ -59,7 +59,16 @@ jobs:
       with:
         name: ngx-tabler-icons
         path: bytelabs-ngx-tabler-icons-*.tgz
-    
+
+    - name: Build Demo Application
+      run: npm run build-demo
+
+    - name: Upload demo library artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ngx-tabler-icons-demo
+        path: dist/demo/browser
+            
     - name: Update CURRENT_TABLER_ICONS_VERSION variable
       run: |
         TABLER_VERSION=$(npm view @tabler/icons version)

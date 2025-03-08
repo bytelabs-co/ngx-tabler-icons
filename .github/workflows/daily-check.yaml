@@ -15,4 +15,5 @@ jobs:
     needs: check-tabler-icons
     if: ${{ needs.check-tabler-icons.outputs.update-available }}
     uses: bytelabs-co/ngx-tabler-icons/.github/workflows/_build-library.tmpl.yaml@main
+    secrets: inherit
 

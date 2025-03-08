@@ -50,7 +50,7 @@ jobs:
     - name: Update CURRENT_TABLER_ICONS_VERSION variable
       run: |
         TABLER_VERSION=$(npm view @tabler/icons version)
-        gh variable set TEST_VAR --body "$TABLER_VERSION"        
+        gh variable set CURRENT_TABLER_ICONS_VERSION --body "$TABLER_VERSION"        
     
     - name: Push changes and tags to origin
       run: |

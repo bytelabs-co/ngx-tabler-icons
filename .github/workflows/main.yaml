@@ -9,4 +9,5 @@ on:
 jobs:
   build-library:
     uses: bytelabs-co/ngx-tabler-icons/.github/workflows/_build-library.tmpl.yaml@main
+    secrets: inherit
 

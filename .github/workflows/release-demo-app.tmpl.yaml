@@ -29,7 +29,6 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: ngx-tabler-icons-demo
-          path: ~/app
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -40,7 +39,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: '~/app/.'
+          path: '.'
       
       - name: Deploy to GitHub Pages
         id: deployment

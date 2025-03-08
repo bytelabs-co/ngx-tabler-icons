@@ -34,6 +34,9 @@ jobs:
     
     - name: Generate icon components
       run: npm run generate-icon-components
+
+    - name: Commit and Tag Version
+      run: npm run release
     
     - name: Build Angular library
       run: npm run build-high-memory

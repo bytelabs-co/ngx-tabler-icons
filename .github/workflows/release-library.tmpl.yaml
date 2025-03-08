@@ -20,7 +20,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: List Artifact
-        run: ls -R ngx-tabler-icons
+        run: ls -R
           
       - name: Unzip Artifact
         if: ${{ false }}

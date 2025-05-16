@@ -1,4 +1,4 @@
-name: "Library: Build and Release new @tabler/icons"
+name: "Library: Daily Check, Build and Release new @tabler/icons"
 
 on:
   workflow_dispatch:

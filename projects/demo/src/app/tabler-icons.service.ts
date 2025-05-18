@@ -61,7 +61,17 @@ export class TablerIconsService {
     const icons = this.#tablerIcons();
 
     const fuse = new Fuse(icons, {
-      keys: ['name', 'tags']
+      keys: [
+        {
+          name: 'name',
+          weight: 10
+        }, {
+          name: 'tags',
+          weight: 1
+        }
+      ],
+      threshold: .4,
+      includeScore: true
     })
 
     return fuse;
@@ -127,12 +137,19 @@ export class TablerIconsService {
     const tablerIcons = this.#tablerIcons();
 
     if (!!p.search) {
-      let results = this.#searchIndex().search(p.search);
-      listResults.total = results.length;
 
-      results = results.slice(sliceStart, sliceStop);
+      const searchResults = this.#searchIndex().search(p.search);
+      console.log('search results', searchResults);
 
-      const matchedIcons = results.map(r => tablerIcons[r.refIndex]);
+      let resultIndexes = this.#searchIndex()
+        .search(p.search)
+        .map(r => r.refIndex);
+
+      listResults.total = resultIndexes.length;
+
+      resultIndexes = resultIndexes.slice(sliceStart, sliceStop);
+
+      const matchedIcons = resultIndexes.map(idx => tablerIcons[idx]);
 
       listResults.data = matchedIcons;
     } else {

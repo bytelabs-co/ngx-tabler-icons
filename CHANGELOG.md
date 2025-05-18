@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## 0.0.17 (2025-05-18)
+
+
+### Bug Fixes
+
+* package-lock was out of sync ([bb3c5dc](https://github.com/bytelabs-co/ngx-tabler-icons/commit/bb3c5dc5c644f9c23695c8380d78405a9ef088fc))
+
 ## 0.0.16 (2025-05-16)
 
 ## 0.0.15 (2025-03-09)

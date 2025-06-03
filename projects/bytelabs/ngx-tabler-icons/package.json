@@ -1,6 +1,6 @@
 {
   "name": "@bytelabs/ngx-tabler-icons",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "peerDependencies": {
     "@angular/common": "^19.0.0",
     "@angular/core": "^19.0.0"

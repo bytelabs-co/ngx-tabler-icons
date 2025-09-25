@@ -28,7 +28,7 @@ jobs:
         node-version: '20.x'
     
     - name: Install Dependencies
-      run: npm ci
+      run: npm install
     
     - name: Install latest @tabler/icons
       run: |

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## 0.0.19 (2025-09-25)
+
+
+### Bug Fixes
+
+* switching from npm ci to npm install ([1b7935a](https://github.com/bytelabs-co/ngx-tabler-icons/commit/1b7935ae513fad74cee18b59e1dd82905e9fc507))
+
 ## 0.0.18 (2025-06-03)
 
 ## 0.0.17 (2025-05-18)

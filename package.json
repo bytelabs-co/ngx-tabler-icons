@@ -1,6 +1,6 @@
 {
   "name": "ngx-tabler-icons",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "scripts": {
     "prepare": "husky",
     "postinstall": "cd schematics/ngx-tabler-icons-schematics && npm install",

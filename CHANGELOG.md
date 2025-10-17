@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## 0.0.20 (2025-10-17)
+
+
+### Bug Fixes
+
+* fixed icon suffix not showing up in tag names ([a5e2a3e](https://github.com/bytelabs-co/ngx-tabler-icons/commit/a5e2a3e6ddeb82d6b3e506cd519fcc1fe1928cd6))
+
 ## 0.0.19 (2025-09-25)
 
 

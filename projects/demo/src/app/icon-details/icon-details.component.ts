@@ -19,11 +19,18 @@ export class IconDetailsComponent {
   icon = input.required<IconDefinition>();
   iconComponent = input<any>();
 
-  private readonly _tagname = computed(() => `tabler-icon-${this.icon().name}`);
-  private readonly _tagNameAlt = computed(() => `ti-${this.icon().name}`);
+  private readonly _tagNameSuffix = computed(() => {
+    const style = this.icon().style;
+    return this.icon().style === 'outline' ? '' : `-${style}`;
+  });
+
+  private readonly _tagNameBase = computed(() => `${this.icon().name}${this._tagNameSuffix()}`)
+
+  private readonly _tagName = computed(() => `tabler-icon-${this._tagNameBase()}`);
+  private readonly _tagNameAlt = computed(() => `ti-${this._tagNameBase()}`);
 
   public readonly iconComponentName = computed(() => `${this.icon().iconName}Component`);
-  public readonly iconTag = computed(() => `<${this._tagname()}/>`)
+  public readonly iconTag = computed(() => `<${this._tagName()}/>`)
   public readonly iconTagAlt = computed(() => `<${this._tagNameAlt()}/>`)
 
   constructor() {

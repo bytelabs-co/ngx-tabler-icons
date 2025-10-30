@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## 0.0.21 (2025-10-30)
+
+
+### Features
+
+* upgrade to angular 20 ([2acacc6](https://github.com/bytelabs-co/ngx-tabler-icons/commit/2acacc609cbdd3fc3e9abeea5543aae271054580))
+
 ## 0.0.20 (2025-10-17)
 
 

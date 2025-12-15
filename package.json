@@ -1,6 +1,6 @@
 {
   "name": "ngx-tabler-icons",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "scripts": {
     "prepare": "husky",
     "postinstall": "cd schematics/ngx-tabler-icons-schematics && npm install",
@@ -30,7 +30,7 @@
     "@angular/router": "^20.3.9",
     "@ng-bootstrap/ng-bootstrap": "^19.0.1",
     "@popperjs/core": "^2.11.8",
-    "@tabler/icons": "^3.35.0",
+    "@tabler/icons": "^3.36.0",
     "bootstrap": "^5.3.3",
     "fuse.js": "^7.1.0",
     "rxjs": "~7.8.0",

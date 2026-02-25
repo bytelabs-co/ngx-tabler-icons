@@ -2,7 +2,7 @@ name: "Demo App: Release to Pages"
 
 on:
   workflow_run:
-    workflows: ["Library: Build and Release", "Library: Build and Release new @tabler/icons"]
+    workflows: ["Library: Build and Release", "Library: Daily Check, Build and Release new @bytelabs/ngx-tabler-icons"]
     types:
       - completed
 

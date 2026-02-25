@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## 0.0.25 (2026-02-25)
+
+
+### Bug Fixes
+
+* Update release-demo-app.tmpl.yaml to match renamed daily check ([ec47f0f](https://github.com/bytelabs-co/ngx-tabler-icons/commit/ec47f0f5f86260a80493cc827d14a0f63ffeae7d))
+
 ## 0.0.24 (2026-02-20)
 
 ## 0.0.23 (2026-01-03)

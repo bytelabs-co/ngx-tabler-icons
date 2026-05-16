@@ -7,10 +7,29 @@ on:
       - completed
 
 jobs:
-  release-library:
+  check-artifact:
     runs-on: ubuntu-latest
-
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    outputs:
+      exists: ${{ steps.check.outputs.exists }}
+    steps:
+      - name: Check if artifact exists
+        id: check
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const artifacts = await github.rest.actions.listWorkflowRunArtifacts({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              run_id: ${{ github.event.workflow_run.id }}
+            });
+            const exists = artifacts.data.artifacts.some(a => a.name === 'ngx-tabler-icons');
+            core.setOutput('exists', exists);
+
+  release-library:
+    needs: check-artifact
+    if: needs.check-artifact.outputs.exists == 'true'
+    runs-on: ubuntu-latest
 
     steps:
 

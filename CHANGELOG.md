@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## 0.0.34 (2026-05-16)
+
+
+### Bug Fixes
+
+* **ci:** skip release workflows when no build artifact exists ([92427d1](https://github.com/bytelabs-co/ngx-tabler-icons/commit/92427d1a480673dca2c9ae816898ca5b2720b646))
+
 ## 0.0.33 (2026-05-09)
 
 ## 0.0.32 (2026-05-07)

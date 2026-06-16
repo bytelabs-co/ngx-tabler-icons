@@ -1,5 +1,9 @@
 {
   "name": "@bytelabs/ngx-tabler-icons",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bytelabs-co/ngx-tabler-icons"
+  },
   "version": "0.0.38",
   "peerDependencies": {
     "@angular/common": "^19.0.0 || ^20.0.0",

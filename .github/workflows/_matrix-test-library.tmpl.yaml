@@ -48,14 +48,12 @@ jobs:
 
       - name: Align Angular packages to v${{ matrix.angular-major }}
         run: |
-          npm install \
-            @angular/animations@${{ matrix.angular-range }} \
+          npm install --legacy-peer-deps \
             @angular/common@${{ matrix.angular-range }} \
             @angular/compiler@${{ matrix.angular-range }} \
             @angular/core@${{ matrix.angular-range }} \
             @angular/forms@${{ matrix.angular-range }} \
             @angular/platform-browser@${{ matrix.angular-range }} \
-            @angular/platform-browser-dynamic@${{ matrix.angular-range }} \
             @angular/router@${{ matrix.angular-range }} \
             @angular/cli@${{ matrix.angular-range }} \
             @angular/build@${{ matrix.angular-range }} \
@@ -67,7 +65,7 @@ jobs:
       - name: Align schematics @angular-devkit packages to v${{ matrix.angular-major }}
         run: |
           cd schematics/ngx-tabler-icons-schematics
-          npm install \
+          npm install --legacy-peer-deps \
             @angular-devkit/core@${{ matrix.devkit-range }} \
             @angular-devkit/schematics@${{ matrix.devkit-range }} \
             typescript@${{ matrix.typescript-range }}

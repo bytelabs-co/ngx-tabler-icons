@@ -1,0 +1,19 @@
+name: "Library: Matrix Compatibility Tests"
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Run daily at 06:00 UTC, offset from the daily-check (00:00 UTC) to avoid overlap
+    - cron: 0 6 * * *
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  matrix-test:
+    name: Matrix Compatibility Test
+    uses: bytelabs-co/ngx-tabler-icons/.github/workflows/_matrix-test-library.tmpl.yaml@main
+    secrets: inherit

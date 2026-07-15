@@ -1,0 +1,97 @@
+name: "_template: Matrix Test Library"
+
+on:
+  workflow_call:
+
+env:
+  GH_TOKEN: ${{ secrets.VAR_PAT }}
+
+jobs:
+  matrix-test:
+    name: Build against Angular v${{ matrix.angular-major }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - angular-major: 19
+            angular-range: ^19.0.0
+            typescript-range: ~5.8.0
+            devkit-range: ^19.0.0
+          - angular-major: 20
+            angular-range: ^20.0.0
+            typescript-range: ~5.9.3
+            devkit-range: ^20.0.0
+          - angular-major: 21
+            angular-range: ^21.0.0
+            typescript-range: ~5.9.3
+            devkit-range: ^21.0.0
+          - angular-major: 22
+            angular-range: ^22.0.0
+            typescript-range: ~6.0.0
+            devkit-range: ^22.0.0
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4.2.2
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24.x'
+
+      - name: Install Root Dependencies
+        run: npm install
+
+      - name: Align Angular packages to v${{ matrix.angular-major }}
+        run: |
+          npm install \
+            @angular/animations@${{ matrix.angular-range }} \
+            @angular/common@${{ matrix.angular-range }} \
+            @angular/compiler@${{ matrix.angular-range }} \
+            @angular/core@${{ matrix.angular-range }} \
+            @angular/forms@${{ matrix.angular-range }} \
+            @angular/platform-browser@${{ matrix.angular-range }} \
+            @angular/platform-browser-dynamic@${{ matrix.angular-range }} \
+            @angular/router@${{ matrix.angular-range }} \
+            @angular/cli@${{ matrix.angular-range }} \
+            @angular/build@${{ matrix.angular-range }} \
+            @angular/compiler-cli@${{ matrix.angular-range }} \
+            @angular/localize@${{ matrix.angular-range }} \
+            ng-packagr@${{ matrix.angular-range }} \
+            typescript@${{ matrix.typescript-range }}
+
+      - name: Align schematics @angular-devkit packages to v${{ matrix.angular-major }}
+        run: |
+          cd schematics/ngx-tabler-icons-schematics
+          npm install \
+            @angular-devkit/core@${{ matrix.devkit-range }} \
+            @angular-devkit/schematics@${{ matrix.devkit-range }} \
+            typescript@${{ matrix.typescript-range }}
+
+      - name: Install latest @tabler/icons
+        run: |
+          npm install @tabler/icons@latest
+          cd schematics/ngx-tabler-icons-schematics
+          npm install @tabler/icons@latest
+
+      - name: Build icon generation schematics
+        run: npm run build-schematics
+
+      - name: Link schematics
+        run: npm run link-schematics
+
+      - name: Generate icon components
+        run: npm run generate-icon-components
+
+      - name: Build Angular library against v${{ matrix.angular-major }}
+        run: npm run build
+
+      - name: Verify generated peerDependencies declaration
+        run: |
+          echo "Published peerDependencies from generated dist:"
+          cat dist/bytelabs/ngx-tabler-icons/package.json | jq '.peerDependencies'
+        continue-on-error: true

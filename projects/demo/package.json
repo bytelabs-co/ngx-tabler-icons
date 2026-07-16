@@ -2,9 +2,24 @@
   "name": "demo",
   "private": true,
   "dependencies": {
+    "@angular/common": "^20.3.9",
+    "@angular/forms": "^20.3.9",
+    "@angular/platform-browser": "^20.3.9",
+    "@angular/router": "^20.3.9",
     "@ng-bootstrap/ng-bootstrap": "^19.0.1",
     "@popperjs/core": "^2.11.8",
+    "@tabler/icons": "^3.44.0",
     "bootstrap": "^5.3.3",
     "fuse.js": "^7.1.0"
+  },
+  "devDependencies": {
+    "@angular/localize": "^20.3.9",
+    "@types/jasmine": "~5.1.0",
+    "jasmine-core": "~5.5.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0"
   }
 }

@@ -27,13 +27,8 @@
     "projects/demo"
   ],
   "dependencies": {
-    "@angular/common": "^20.3.9",
     "@angular/compiler": "^20.3.9",
     "@angular/core": "^20.3.9",
-    "@angular/forms": "^20.3.9",
-    "@angular/platform-browser": "^20.3.9",
-    "@angular/router": "^20.3.9",
-    "@tabler/icons": "^3.44.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
@@ -43,20 +38,11 @@
     "@angular/build": "^20.3.8",
     "@angular/cli": "^20.3.8",
     "@angular/compiler-cli": "^20.3.9",
-    "@angular/localize": "^20.3.9",
     "@commitlint/cli": "^19.7.1",
     "@commitlint/config-conventional": "^19.7.1",
-    "@types/jasmine": "~5.1.0",
     "commit-and-tag-version": "^12.5.0",
     "husky": "^9.1.7",
-    "jasmine-core": "~5.5.0",
-    "karma": "~6.4.0",
-    "karma-chrome-launcher": "~3.2.0",
-    "karma-coverage": "~2.2.0",
-    "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "~2.1.0",
     "ng-packagr": "^20.3.0",
-    "svgo": "^3.3.2",
     "typescript": "~5.9.3"
   }
 }

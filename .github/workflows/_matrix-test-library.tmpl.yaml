@@ -49,16 +49,11 @@ jobs:
       - name: Align Angular packages to v${{ matrix.angular-major }}
         run: |
           npm install --legacy-peer-deps \
-            @angular/common@${{ matrix.angular-range }} \
             @angular/compiler@${{ matrix.angular-range }} \
             @angular/core@${{ matrix.angular-range }} \
-            @angular/forms@${{ matrix.angular-range }} \
-            @angular/platform-browser@${{ matrix.angular-range }} \
-            @angular/router@${{ matrix.angular-range }} \
             @angular/cli@${{ matrix.angular-range }} \
             @angular/build@${{ matrix.angular-range }} \
             @angular/compiler-cli@${{ matrix.angular-range }} \
-            @angular/localize@${{ matrix.angular-range }} \
             ng-packagr@${{ matrix.angular-range }} \
             typescript@${{ matrix.typescript-range }}
 

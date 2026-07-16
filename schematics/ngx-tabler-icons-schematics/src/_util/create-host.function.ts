@@ -1,4 +1,4 @@
-import { virtualFs, workspaces } from "@angular-devkit/core";
+import { workspaces } from "@angular-devkit/core";
 import { SchematicsException, Tree } from "@angular-devkit/schematics";
 
 export function createHost(tree: Tree): workspaces.WorkspaceHost{
@@ -20,7 +20,7 @@ async function readFileAsync(tree: Tree, path: string): Promise<string> {
     throw new SchematicsException("File not found");
   }
 
-  return virtualFs.fileBufferToString(data);
+  return data.toString('utf-8');
 }
 
 async function writeFileAsync(tree: Tree, path: string, data: string): Promise<void> {

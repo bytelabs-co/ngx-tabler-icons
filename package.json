@@ -11,7 +11,7 @@
     "ng": "ng",
     "schematics": "schematics",
     "build-schematics": "cd schematics/ngx-tabler-icons-schematics && npm run build",
-    "link-schematics": "npm link ./schematics/ngx-tabler-icons-schematics",
+    "link-schematics": "npm link --legacy-peer-deps ./schematics/ngx-tabler-icons-schematics",
     "generate-icon-components": "schematics ngx-tabler-icons-schematics:generate-icons --project @bytelabs/ngx-tabler-icons",
     "clean-icon-components": "npx rimraf projects/bytelabs/ngx-tabler-icons/src/lib/icons/*.ts",
     "start": "ng serve",

@@ -23,6 +23,9 @@
     "release": "commit-and-tag-version"
   },
   "private": true,
+  "workspaces": [
+    "projects/demo"
+  ],
   "dependencies": {
     "@angular/common": "^20.3.9",
     "@angular/compiler": "^20.3.9",
@@ -30,11 +33,7 @@
     "@angular/forms": "^20.3.9",
     "@angular/platform-browser": "^20.3.9",
     "@angular/router": "^20.3.9",
-    "@ng-bootstrap/ng-bootstrap": "^19.0.1",
-    "@popperjs/core": "^2.11.8",
     "@tabler/icons": "^3.44.0",
-    "bootstrap": "^5.3.3",
-    "fuse.js": "^7.1.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"

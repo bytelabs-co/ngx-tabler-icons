@@ -4,7 +4,7 @@
     "type": "git",
     "url": "https://github.com/bytelabs-co/ngx-tabler-icons"
   },
-  "version": "0.0.41",
+  "version": "0.0.42",
   "peerDependencies": {
     "@angular/common": "^19.0.0 || ^20.0.0 || ^21.0.0 || ^22.0.0",
     "@angular/core": "^19.0.0 || ^20.0.0 || ^21.0.0 || ^22.0.0"

@@ -44,7 +44,7 @@ jobs:
           node-version: '24.x'
 
       - name: Install Root Dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Align Angular packages to v${{ matrix.angular-major }}
         run: |
@@ -67,7 +67,7 @@ jobs:
 
       - name: Install latest @tabler/icons
         run: |
-          npm install @tabler/icons@latest
+          npm install --legacy-peer-deps @tabler/icons@latest
           cd schematics/ngx-tabler-icons-schematics
           npm install @tabler/icons@latest
 

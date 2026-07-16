@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## 0.0.45 (2026-07-16)
+
+
+### Bug Fixes
+
+* use module node16 in schematics tsconfig for TS 5.8-6.0 compat ([a9f73d7](https://github.com/bytelabs-co/ngx-tabler-icons/commit/a9f73d7043b65ed279e78bb1d4d4ea3d18e4c32c))
+
 ## 0.0.44 (2026-07-16)
 
 ## 0.0.43 (2026-07-16)

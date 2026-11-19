@@ -56,7 +56,7 @@ export function generateIcons(_options: GenerateIconsSchema): Rule {
             project: _options.project
           }
 
-          var iconComponentSchematic = schematic('icon-component', iconComponentOptions);
+          const iconComponentSchematic = schematic('icon-component', iconComponentOptions);
 
           rules.push(iconComponentSchematic);
 

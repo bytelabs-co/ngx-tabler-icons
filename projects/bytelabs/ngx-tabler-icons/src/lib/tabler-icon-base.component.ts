@@ -17,4 +17,6 @@ export class TablerIconBaseComponent {
 
   stroke = input<string>(this.tablerIconsSettingsService?.stroke() ?? defaultConfig.stroke);
 
+  class = input<string>(this.tablerIconsSettingsService?.class() ?? defaultConfig.class);
+
 }

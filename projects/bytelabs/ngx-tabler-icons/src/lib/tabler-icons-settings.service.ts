@@ -17,4 +17,6 @@ export class TablerIconsSettingsService {
 
   public readonly stroke = signal<string>(this.tablerIconsConfig?.stroke ?? defaultConfig.stroke);
 
+  public readonly class = signal<string>(this.tablerIconsConfig?.class ?? defaultConfig.class);
+
 }

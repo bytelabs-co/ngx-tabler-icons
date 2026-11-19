@@ -17,9 +17,7 @@ export function iconComponent(_options: IconComponentSchema): Rule {
     }
 
     const projectType = project.extensions.projectType === 'application' ? 'app' : 'lib';
-    if (_options.path === undefined) {
-      _options.path = `${project.sourceRoot}/${projectType}`;
-    }
+    _options.path ??= `${project.sourceRoot}/${projectType}`;
 
     const svgTemplate = await paramterizeSvgTemplate(_options.svgTemplate);
 
@@ -28,8 +26,8 @@ export function iconComponent(_options: IconComponentSchema): Rule {
         classify: strings.classify,
         dasherize: strings.dasherize,
         name: _options.name,
-        applyStrokeColor: _options.style === 'outline' ? true : false,
-        applyFillColor: _options.style === 'outline' ? false : true,
+        applyStrokeColor: _options.style === 'outline',
+        applyFillColor: _options.style !== 'outline',
         svgTemplate: svgTemplate
       }),
       move(normalize(_options.path as string)),
@@ -49,6 +47,7 @@ async function paramterizeSvgTemplate(svgTemplate: string): Promise<string> {
   overwriteAttribute(svg, 'stroke', '{{ strokeColor() }}');
   overwriteAttribute(svg, 'fill', '{{ fillColor() }}');
   overwriteAttribute(svg, 'stroke-width', '{{ stroke() }}');
+  overwriteAttribute(svg, 'class', '{{ class() }}');
 
   return svgStringify(svg);
 }
